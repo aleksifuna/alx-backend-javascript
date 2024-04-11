@@ -57,6 +57,6 @@ export default class HolbertonCourse {
 
   get students() {
     // getter for students attribute
-    return this._length;
+    return this._students;
   }
 }
