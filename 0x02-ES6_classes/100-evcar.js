@@ -6,6 +6,7 @@ export default class EVcar extends Car {
     if (typeof range !== 'string') {
       throw new TypeError('Range must be a string');
     }
+    this._range = range;
   }
 
   cloneCar() {
