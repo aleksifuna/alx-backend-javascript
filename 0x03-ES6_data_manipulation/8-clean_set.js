@@ -1,7 +1,7 @@
 export default function cleanSet(set, startString) {
   // returns a string of all set values that start with specific startString
   const result = [];
-  if (startString === '') {
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
 
