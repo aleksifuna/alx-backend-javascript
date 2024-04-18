@@ -16,3 +16,29 @@ export interface printTeacherFunction {
 export function printTeacher(firstName:string, lastName:string) {
     return `${firstName[0]}.${lastName}`;
 }
+
+export interface StudentConstructor {
+    firstName: string;
+    lastName: string;
+}
+
+export interface StudentInterface {
+    workOnHomework(): string;
+    displayName(): string;
+}
+
+class StudentClass implements StudentInterface {
+    firstName: string;
+    lastName: string;
+
+    constructor({firstName, lastName}: StudentConstructor) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    workOnHomework(): string {
+        return 'Currently working';
+    }
+    displayName(): string {
+        return this.firstName;
+    }
+}
