@@ -2,7 +2,7 @@ namespace Subjects {
     export interface Teacher {
         experienceTeachingJava?: number;
     }
-    export class React extends Subjects.Subject{
+    export class Java extends Subjects.Subject{
         getRequirements(): string {
             return 'Here is the list of requirements for Java';
         }
