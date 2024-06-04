@@ -1,7 +1,9 @@
-const process = require('process');
-
+/**
+ * dsiplayMessage - prints to stdout a message passed to the function
+ * @message: Text to print to stdout
+ */
 function displayMessage(message) {
-  process.stdout.write(`${message}\n`);
+  console.log(message);
 }
 
 module.exports = displayMessage;
