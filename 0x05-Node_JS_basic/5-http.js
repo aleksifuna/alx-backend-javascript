@@ -58,6 +58,10 @@ const app = createServer((req, res) => {
       .then((report) => {
         responseParts.push(report);
         res.end(responseParts.join('\n'));
+      })
+      .catch((err) => {
+        responseParts.push(err instanceof Error ? err.message : err.toString());
+        res.end(responseParts.join('\n'));
       });
   }
 });
