@@ -8,12 +8,9 @@ function calculateNumber(type, a, b) {
     return Math.round(a) - Math.round(b);
   }
   if (type === 'DIVIDE') {
-    if (b === 0) {
-      return 'Error';
-    }
-    return Math.round(a) / Math.round(b);
+    return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
   }
-  return 'Error';
+  return '0';
 }
 
 module.exports = calculateNumber;
