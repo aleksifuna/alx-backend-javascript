@@ -7,7 +7,23 @@ class StudentsController {
     const responseParts = ['This is the list of our students'];
     readDatabase(DBName)
       .then((report) => {
-        responseParts.push(report);
+        const responseParts = ['This is the list of our students'];
+        function compareFxn(a, b) {
+          if (a[0].toLowerCase() < b[0].toLowerCase()) {
+            return -1;
+          }
+          if (a[0].toLowerCase() > b[0].toLowerCase()) {
+            return 1;
+          }
+          return 0;
+        }
+        for (const [field, group] of Object.entries(report).sort(compareFxn)) {
+          responseParts.push([
+            `Number of students in ${field}: ${group.length}.`,
+            'List:',
+            group.map((student) => student.firstname).join(', '),
+          ].join(' '));
+        }
         response.status(200).send(responseParts.join('\n'));
       })
       .catch((err) => {
