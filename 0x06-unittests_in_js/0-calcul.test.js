@@ -14,4 +14,12 @@ describe('calculateNumber', () => {
     const sum3 = calculateNumber(1.2, 3.7);
     assert.strictEqual(sum3, 5);
   });
+  it('test with both floating whole number', () => {
+    const sum4 = calculateNumber(1.0, 3.0);
+    assert.strictEqual(sum4, 4);
+  });
+  it('test with negative floats', () => {
+    const sum3 = calculateNumber(-1.2, -3.7);
+    assert.strictEqual(sum3, -5);
+  });
 });
