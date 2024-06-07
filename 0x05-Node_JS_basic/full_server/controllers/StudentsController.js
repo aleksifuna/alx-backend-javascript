@@ -36,7 +36,7 @@ class StudentsController {
     const DBName = process.argv.length > 2 ? process.argv[2] : '';
     const { major } = request.params;
     if (!validMajors.includes(major)) {
-      response.status(500).send('Major  parameter must be CS or SWE');
+      response.status(500).send('Major parameter must be CS or SWE');
       return;
     }
     readDatabase(DBName)
