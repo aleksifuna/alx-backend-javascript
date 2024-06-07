@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/eslint",
     "lint-all": "./node_modules/.bin/eslint [0-9]*.js",
     "lint-fix-all": "./node_modules/.bin/eslint --fix [0-9]*.js",
-    "test": "mocha *.test.js",
+    "test": "mocha",
     "dev": "nodemon --exec babel-node --presets babel-preset-env ./full_server/server.js ./database.csv"
   },
   "dependencies": {
@@ -29,7 +29,7 @@
   },
   "engines": {
     "node": "12.x",
-    "npm": "8.x",
+    "npm": "6.x",
     "yarn": "1.x"
   }
 }
