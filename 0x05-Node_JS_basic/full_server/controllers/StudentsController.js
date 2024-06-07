@@ -4,7 +4,6 @@ const validMajors = ['CS', 'SWE'];
 class StudentsController {
   static getAllStudents(request, response) {
     const DBName = process.argv.length > 2 ? process.argv[2] : '';
-    const responseParts = ['This is the list of our students'];
     readDatabase(DBName)
       .then((report) => {
         const responseParts = ['This is the list of our students'];
@@ -27,8 +26,7 @@ class StudentsController {
         response.status(200).send(responseParts.join('\n'));
       })
       .catch((err) => {
-        responseParts.push(err instanceof Error ? err.message : err.toString());
-        response.status(500).send(responseParts.join('\n'));
+        response.status(500).send(err instanceof Error ? err.message : err.toString());
       });
   }
 
