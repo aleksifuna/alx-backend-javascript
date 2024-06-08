@@ -1,6 +1,5 @@
 const request = require('request');
 const { expect } = require('chai');
-const { response } = require('./api');
 
 describe('aPI intergration test', () => {
   it('/ GET method', () => new Promise((done) => {
@@ -31,13 +30,14 @@ describe('aPI intergration test', () => {
 
   it('gET /available_payments', () => new Promise((done) => {
     const URL = 'http://localhost:7865/available_payments';
-    request.get(URL, (error, response, body) => {
-      expect(response.statusCode).to.be.equal(200);
+    request.get(URL, (error, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
       expect(JSON.parse(body))
         .to.be.deep.equal({ payment_methods: { credit_cards: true, paypal: false } });
       done();
     });
   }));
+
   it('pOST /login', () => new Promise((done) => {
     const URL = 'http://localhost:7865/login';
     request.post(URL, { json: { userName: 'Betty' } }, (error, res, body) => {
